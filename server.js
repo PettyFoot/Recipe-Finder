@@ -1,7 +1,9 @@
 const express = require('express');
 const app = express();
-app.use(express.static("public"));
-const PORT = 8000;
+
+const publicPath = path.join(__dirname, '/', 'public');
+app.use(express.static(publicPath));
+const PORT = process.env.PORT || 8000;
 
 const coolObjects = {
     'coolObjectOne' :{
@@ -21,11 +23,7 @@ const coolObjects = {
      
 }
 
-app.get('/', (request, response) => {
-    
-    
 
-})
 
 app.get('/api/:fetchObject', (request, response) => {
     const objectToFetch = request.params.fetchObject;
@@ -40,6 +38,6 @@ app.get('/api/:fetchObject', (request, response) => {
     
 })
 
-app.listen( process.env.PORT || PORT, ()=>{
+app.listen(PORT, ()=>{
     console.log(`Server is running on port: ${PORT}`)
 })
