@@ -19,6 +19,13 @@ const coolObjects = {
         'density': 2.5,
         'specialAbility': 'ducking really really fast'
         
+    },
+    'coolObjectThree' : {
+        'height': 300,
+        'width': 300,
+        'density': 3.5,
+        'specialAbility': 'ducking really really really fast'
+        
     }
      
 }
@@ -26,14 +33,19 @@ const coolObjects = {
 
 
 app.get('/api/:fetchObject', (request, response) => {
-    const objectToFetch = request.params.fetchObject;
+    
+    response.json(coolObjects)
+    
+    /**const objectToFetch = request.params.fetchObject;
+    console.log(objectToFetch);
     if(coolObjects[objectToFetch])
     {
         response.json(coolObjects[objectToFetch])
-    }else{
-        response.json(coolObjects[objectToFetch])
-    }
-    response.json(coolObjects[objectToFetch]);
+    }else
+    {
+        response.json(coolObjects['coolObjectThree'])
+    } */
+   
 
     
 })
